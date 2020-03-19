@@ -1,0 +1,7 @@
+[Desktop Entry]
+Categories=Utility;
+Type=Application
+Icon=swipl
+Name=swipl
+Exec=swipl
+Terminal=true
