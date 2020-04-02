@@ -1,2 +1,14 @@
-#!/bin/sh
-swipl start.pl
+#!/bin/bash
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+SOURCE="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+SWI_HOME_DIR=$SOURCE/usr/lib/swi-prolog
+export TERMINUS_SERVER_INDEX_PATH=$(pwd)/index.html
+export TERMINUS_SERVER_DB_PATH=$(pwd)/storage
+export TERMINUS_SERVER_TMP_PATH=/tmp
+$SOURCE/usr/bin/swipl $SOURCE/usr/share/terminusdb/utils/db_util -s localhost -k root --autologin=true
+$SOURCE/usr/bin/swipl $SOURCE/usr/share/terminusdb/start.pl

@@ -2,6 +2,6 @@
 Categories=Utility;
 Type=Application
 Icon=swipl
-Name=swipl
-Exec=swipl
+Name=TerminusDB
+Exec=swipl start.pl
 Terminal=true
