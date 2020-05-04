@@ -1,7 +1,7 @@
 [Desktop Entry]
 Categories=Utility;
 Type=Application
-Icon=swipl
+Icon=terminusdb
 Name=TerminusDB
-Exec=swipl start.pl
+Exec=AppRun
 Terminal=true
