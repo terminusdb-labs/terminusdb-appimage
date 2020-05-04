@@ -1,7 +1,22 @@
 #!/bin/sh
+CURRENT_DIR=$(pwd)
 mkdir -p app_dir/usr/share/terminusdb
+mkdir -p app_dir/usr/lib/swi-prolog/pack
+mkdir -p app_dir/usr/lib/x86_64-linux-gnu
 git clone https://github.com/terminusdb/terminus-server.git
 cd terminus-server && git checkout hub && cd ..
 cp -r terminus-server/* app_dir/usr/share/terminusdb/
 cp -r /usr/lib/swi-prolog app_dir/usr/lib/
-linuxdeploy-x86_64.AppImage --appdir ./app_dir --executable /usr/bin/swipl --library ~/.local/share/swi-prolog/pack/terminus_store_prolog/rust/target/release/libterminus_store_prolog.so -d terminusdb.desktop -i swipl.png --custom-apprun AppRun --output appimage
+cp -L /usr/lib/x86_64-linux-gnu/libedit.so.2 app_dir/usr/lib/swi-prolog/lib/x86_64-linux/
+cp -L /usr/lib/x86_64-linux-gnu/libpcre.so.3 app_dir/usr/lib/swi-prolog/lib/x86_64-linux/
+cp -L /usr/lib/x86_64-linux-gnu/libbsd.so.0 app_dir/usr/lib/swi-prolog/lib/x86_64-linux/
+rm -rf app_dir/usr/lib/swi-prolog/bin/x86_64-linux/swipl-ld
+cd app_dir/usr/lib/swi-prolog/pack
+git clone https://github.com/terminusdb/terminus_store_prolog.git
+cd terminus_store_prolog
+./make
+rm -rf rust/target/release/build
+rm -rf rust/target/release/deps
+cd $CURRENT_DIR
+#linuxdeploy-x86_64.AppImage --appdir ./app_dir --executable /lib/swi-prolog/bin/x86_64-linux/swipl --library /lib/swi-prolog --library ~/.local/share/swi-prolog/pack/terminus_store_prolog/rust/target/release/libterminus_store_prolog.so -d terminusdb.desktop -i swipl.png --custom-apprun AppRun --output appimage --verbosity=0
+linuxdeploy-x86_64.AppImage --appdir ./app_dir --executable /lib/swi-prolog/bin/x86_64-linux/swipl --library ~/.local/share/swi-prolog/pack/terminus_store_prolog/rust/target/release/libterminus_store_prolog.so --library /usr/lib/x86_64-linux-gnu/libpcre.so.3 -d terminusdb.desktop -i swipl.png --custom-apprun AppRun --output appimage --verbosity=0
