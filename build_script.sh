@@ -20,4 +20,4 @@ rm -rf rust/target/release/build
 rm -rf rust/target/release/deps
 cd $CURRENT_DIR
 #linuxdeploy-x86_64.AppImage --appdir ./app_dir --executable /lib/swi-prolog/bin/x86_64-linux/swipl --library /lib/swi-prolog --library ~/.local/share/swi-prolog/pack/terminus_store_prolog/rust/target/release/libterminus_store_prolog.so -d terminusdb.desktop -i swipl.png --custom-apprun AppRun --output appimage --verbosity=0
-./linuxdeploy-x86_64.AppImage --appdir ./app_dir --executable /lib/swi-prolog/bin/x86_64-linux/swipl --library "$TERMINUS_STORE_PROLOG_DIR/rust/target/release/libterminus_store_prolog.so" --library /usr/lib/x86_64-linux-gnu/libpcre.so.3 -d terminusdb.desktop -i terminusdb.svg --custom-apprun AppRun --output appimage --verbosity=0
+./linuxdeploy-x86_64.AppImage --appdir ./app_dir --executable /lib/swi-prolog/bin/x86_64-linux/swipl --library "$TERMINUS_STORE_PROLOG_DIR/rust/target/release/libterminus_store_prolog.so" --library /lib/x86_64-linux-gnu/libpcre.so.3 -d terminusdb.desktop -i terminusdb.svg --custom-apprun AppRun --output appimage --verbosity=0
