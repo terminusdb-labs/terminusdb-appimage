@@ -43,3 +43,12 @@ jobs:
 
     - name: Run the build script
       run: ./build_script.sh
+      
+    - name: Rename AppImage
+      run: mv *.AppImage TerminusDB.AppImage
+
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: TerminusDB.AppImage
+        path: TerminusDB.AppImage
