@@ -13,7 +13,6 @@ cp -L /usr/lib/x86_64-linux-gnu/libedit.so.2 app_dir/usr/lib/swi-prolog/lib/x86_
 cp -L /usr/lib/x86_64-linux-gnu/libpcre.so.3 app_dir/usr/lib/swi-prolog/lib/x86_64-linux/
 cp -L /usr/lib/x86_64-linux-gnu/libbsd.so.0 app_dir/usr/lib/swi-prolog/lib/x86_64-linux/
 rm -rf app_dir/usr/lib/swi-prolog/bin/x86_64-linux/swipl-ld
-cd app_dir/usr/lib/swi-prolog/pack
 git clone https://github.com/terminusdb/terminus_store_prolog.git "$TERMINUS_STORE_PROLOG_DIR"
 cd "$TERMINUS_STORE_PROLOG_DIR"
 ./make
