@@ -45,7 +45,7 @@ jobs:
       run: ./build_script.sh
       
     - name: Rename AppImage
-      run: mv "TerminusDB-$(echo $GITHUB_SHA | cut -c 1-7))-x86_64.AppImage" TerminusDB.AppImage
+      run: mv "TerminusDB-$(echo $GITHUB_SHA | cut -c 1-7)-x86_64.AppImage" TerminusDB.AppImage
 
     - name: Archive production artifacts
       uses: actions/upload-artifact@v1
