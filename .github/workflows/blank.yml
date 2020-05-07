@@ -45,10 +45,23 @@ jobs:
       run: ./build_script.sh
       
     - name: Rename AppImage
-      run: mv "TerminusDB-$(echo $GITHUB_SHA | cut -c 1-7)-x86_64.AppImage" TerminusDB.AppImage
+      run: mv "TerminusDB-$(echo $GITHUB_SHA | cut -c 1-7)-x86_64.AppImage" TerminusDB-amd64
 
     - name: Archive production artifacts
       uses: actions/upload-artifact@v1
       with:
-        name: TerminusDB-amd64.AppImage
-        path: TerminusDB.AppImage
+        name: TerminusDB-amd64
+        path: TerminusDB-amd64
+        
+    - name: GH Release
+      uses: softprops/action-gh-release@v0.1.5
+      with:
+        # Note-worthy description of changes in release
+        body: Test
+        # Gives the release a custom name. Defaults to tag name
+        name: TerminusDB AppImage
+        # Creates a draft release. Defaults to false
+        # Identify the release as a prerelease. Defaults to false
+        prerelease: true
+        # Newline-delimited list of path globs for asset files to upload
+        files: TerminusDB-amd64
