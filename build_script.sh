@@ -10,7 +10,7 @@ cd terminus-server && git checkout hub && cd ..
 cp -r terminus-server/* app_dir/usr/share/terminusdb/
 cp -r /usr/lib/swi-prolog app_dir/usr/lib/
 cp -L /usr/lib/x86_64-linux-gnu/libedit.so.2 app_dir/usr/lib/swi-prolog/lib/x86_64-linux/
-cp -L /usr/lib/x86_64-linux-gnu/libpcre.so.3 app_dir/usr/lib/swi-prolog/lib/x86_64-linux/
+cp -L /lib/x86_64-linux-gnu/libpcre.so.3 app_dir/usr/lib/swi-prolog/lib/x86_64-linux/
 cp -L /usr/lib/x86_64-linux-gnu/libbsd.so.0 app_dir/usr/lib/swi-prolog/lib/x86_64-linux/
 rm -rf app_dir/usr/lib/swi-prolog/bin/x86_64-linux/swipl-ld
 git clone https://github.com/terminusdb/terminus_store_prolog.git "$TERMINUS_STORE_PROLOG_DIR"
