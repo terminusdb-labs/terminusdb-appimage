@@ -56,7 +56,7 @@ jobs:
     - name: Delete tag and release
       uses: dev-drprasad/delete-tag-and-release@v0.1.2
       with:
-        tag_name: ${{ github.events.inputs.terminusdb_branch }}
+        tag_name: dev
 
     - name: Create a Release
       id: create_release
