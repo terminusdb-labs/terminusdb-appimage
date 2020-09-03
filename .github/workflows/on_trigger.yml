@@ -54,6 +54,11 @@ jobs:
         name: TerminusDB-amd64.AppImage
         path: TerminusDB-amd64.AppImage
 
+    - name: Delete drafts
+        uses: hugo19941994/delete-draft-releases@v0.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Create a Release
       id: create_release
       uses: softprops/action-gh-release@v1
