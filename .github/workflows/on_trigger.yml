@@ -54,10 +54,10 @@ jobs:
         name: TerminusDB-amd64.AppImage
         path: TerminusDB-amd64.AppImage
 
-    - name: Delete drafts
-        uses: hugo19941994/delete-draft-releases@v0.1.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Delete tag and release
+      uses: dev-drprasad/delete-tag-and-release@v0.1.2
+          with:
+            tag_name: ${{ github.events.inputs.terminusdb_branch }}
 
     - name: Create a Release
       id: create_release
