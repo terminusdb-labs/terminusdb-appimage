@@ -67,6 +67,6 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.event.inputs.terminusdb_branch }}
+        tag_name: ${{ github.event.inputs.terminusdb_branch }}-tag
         prerelease: true
         files: TerminusDB-amd64.AppImage
